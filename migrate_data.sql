@@ -29,21 +29,24 @@ INSERT INTO projects (title, description, image_path, link) VALUES
  'https://any-dan-design-portfolio.figma.site/');
 
 -- Insert Experiences
-INSERT INTO experiences (title, company, period, responsibilities) VALUES
+INSERT INTO experiences (title, company, period, responsibilities, image_path) VALUES
 ('Internship [Cybersecurity Analyst]', 
  'IHS Towers', 
  'Jan 2025 – Feb 2025', 
- '["Monitored Sophos alerts, responded to malware, and collaborated with Red Team to enhance protection.", "Gained experience using Sophos Endpoint Protection, device control, and email security."]'::jsonb),
+ '["Monitored Sophos alerts, responded to malware, and collaborated with Red Team to enhance protection.", "Gained experience using Sophos Endpoint Protection, device control, and email security."]'::jsonb,
+ 'assets/images/Ihs.png'),
 
 ('Internship [Software Engineer & Data Analyst]', 
  'Seplat Energy Plc', 
  'Feb 2025 – June 2025', 
- '["Redesigned inventory system for usability and workflow.", "Built interactive game with leaderboard, data collection, and storage.", "Created Power BI dashboard to visualize Microsoft Forms data.", "Analyzed survey results in Excel, conducted HSE solutions, and supported weekly meetings."]'::jsonb),
+ '["Redesigned inventory system for usability and workflow.", "Built interactive game with leaderboard, data collection, and storage.", "Created Power BI dashboard to visualize Microsoft Forms data.", "Analyzed survey results in Excel, conducted HSE solutions, and supported weekly meetings."]'::jsonb,
+ 'assets/images/Seplat.png'),
 
 ('Part-time [Product Manager & Designer]', 
  'Alcott Courier And Logistics Limited', 
  'Aug 2025 – Present', 
- '["Define product vision and priorities.", "Design User-Centered Experiences.", "Translate Ideas into Actionable Tasks.", "Coordinate Development & Design Handoff.", "Test, iterate, and Communicate Progress."]'::jsonb);
+ '["Define product vision and priorities.", "Design User-Centered Experiences.", "Translate Ideas into Actionable Tasks.", "Coordinate Development & Design Handoff.", "Test, iterate, and Communicate Progress."]'::jsonb,
+ 'assets/images/alcot.png');
 
 -- Insert Default Settings (password and SEO)
 INSERT INTO settings (admin_password, seo_title, seo_description, seo_keywords, seo_author, seo_og_image) VALUES

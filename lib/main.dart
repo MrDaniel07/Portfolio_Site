@@ -873,7 +873,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
                     description: experience.responsibilities
                         .map((r) => '- $r')
                         .join('\n'),
-                    imagePath: 'assets/images/default_company.png',
+                    imagePath: experience.imagePath,
                   ),
                 ))
           else

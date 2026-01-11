@@ -577,6 +577,7 @@ class _ExperienceFormDialogState extends State<ExperienceFormDialog> {
   late TextEditingController _titleController;
   late TextEditingController _companyController;
   late TextEditingController _periodController;
+  late TextEditingController _imagePathController;
   late List<TextEditingController> _responsibilityControllers;
 
   @override
@@ -588,6 +589,8 @@ class _ExperienceFormDialogState extends State<ExperienceFormDialog> {
         TextEditingController(text: widget.experience?.company ?? '');
     _periodController =
         TextEditingController(text: widget.experience?.period ?? '');
+    _imagePathController = TextEditingController(
+        text: widget.experience?.imagePath ?? 'assets/images/');
     _responsibilityControllers = widget.experience?.responsibilities
             .map((r) => TextEditingController(text: r))
             .toList() ??
@@ -605,6 +608,18 @@ class _ExperienceFormDialogState extends State<ExperienceFormDialog> {
       _responsibilityControllers[index].dispose();
       _responsibilityControllers.removeAt(index);
     });
+  }
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _companyController.dispose();
+    _periodController.dispose();
+    _imagePathController.dispose();
+    for (var controller in _responsibilityControllers) {
+      controller.dispose();
+    }
+    super.dispose();
   }
 
   @override
@@ -635,6 +650,15 @@ class _ExperienceFormDialogState extends State<ExperienceFormDialog> {
                 decoration: const InputDecoration(
                   labelText: 'Period',
                   hintText: '2020 - 2023',
+                ),
+                validator: (v) => v?.isEmpty == true ? 'Required' : null,
+              ),
+              const SizedBox(height: 12),
+              TextFormField(
+                controller: _imagePathController,
+                decoration: const InputDecoration(
+                  labelText: 'Image Path',
+                  hintText: 'assets/images/company.png',
                 ),
                 validator: (v) => v?.isEmpty == true ? 'Required' : null,
               ),
@@ -696,6 +720,7 @@ class _ExperienceFormDialogState extends State<ExperienceFormDialog> {
                     .map((c) => c.text)
                     .where((t) => t.isNotEmpty)
                     .toList(),
+                imagePath: _imagePathController.text,
                 createdAt: widget.experience?.createdAt,
               );
               widget.onSave(experience);

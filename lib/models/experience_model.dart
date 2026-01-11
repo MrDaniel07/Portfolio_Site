@@ -4,6 +4,7 @@ class ExperienceModel {
   final String company;
   final String period;
   final List<String> responsibilities;
+  final String imagePath;
   final DateTime createdAt;
 
   ExperienceModel({
@@ -12,6 +13,7 @@ class ExperienceModel {
     required this.company,
     required this.period,
     required this.responsibilities,
+    this.imagePath = 'assets/images/default_company.png',
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
@@ -25,6 +27,7 @@ class ExperienceModel {
       responsibilities: json['responsibilities'] != null
           ? List<String>.from(json['responsibilities'])
           : [],
+      imagePath: json['image_path'] ?? 'assets/images/default_company.png',
       createdAt: json['created_at'] != null
           ? DateTime.parse(json['created_at'])
           : DateTime.now(),
@@ -39,6 +42,7 @@ class ExperienceModel {
       'company': company,
       'period': period,
       'responsibilities': responsibilities,
+      'image_path': imagePath,
       'created_at': createdAt.toIso8601String(),
     };
   }
@@ -50,6 +54,7 @@ class ExperienceModel {
     String? company,
     String? period,
     List<String>? responsibilities,
+    String? imagePath,
     DateTime? createdAt,
   }) {
     return ExperienceModel(
@@ -58,6 +63,7 @@ class ExperienceModel {
       company: company ?? this.company,
       period: period ?? this.period,
       responsibilities: responsibilities ?? this.responsibilities,
+      imagePath: imagePath ?? this.imagePath,
       createdAt: createdAt ?? this.createdAt,
     );
   }
