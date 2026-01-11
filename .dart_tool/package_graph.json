@@ -1,10 +1,10 @@
 {
   "roots": [
-    "new_app"
+    "anyahuru_daniel_portfolio"
   ],
   "packages": [
     {
-      "name": "new_app",
+      "name": "anyahuru_daniel_portfolio",
       "version": "1.0.0+1",
       "dependencies": [
         "audioplayers",
