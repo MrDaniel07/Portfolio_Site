@@ -263,14 +263,25 @@ class _ProjectsManagementState extends State<ProjectsManagement> {
                       margin: const EdgeInsets.only(bottom: 12),
                       child: ListTile(
                         leading: project.imagePath.isNotEmpty
-                            ? Image.asset(
-                                project.imagePath,
-                                width: 60,
-                                height: 60,
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const Icon(Icons.image_not_supported),
-                              )
+                            ? (project.imagePath.startsWith('http')
+                                ? Image.network(
+                                    project.imagePath,
+                                    width: 60,
+                                    height: 60,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error,
+                                            stackTrace) =>
+                                        const Icon(Icons.image_not_supported),
+                                  )
+                                : Image.asset(
+                                    project.imagePath,
+                                    width: 60,
+                                    height: 60,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error,
+                                            stackTrace) =>
+                                        const Icon(Icons.image_not_supported),
+                                  ))
                             : const Icon(Icons.image),
                         title: Text(project.title),
                         subtitle: Text(
@@ -382,8 +393,9 @@ class _ProjectFormDialogState extends State<ProjectFormDialog> {
               TextFormField(
                 controller: _imagePathController,
                 decoration: const InputDecoration(
-                  labelText: 'Image Path',
-                  hintText: 'assets/images/project.png',
+                  labelText: 'Image Path or URL',
+                  hintText:
+                      'assets/images/project.png or https://example.com/image.png',
                 ),
                 validator: (v) => v?.isEmpty == true ? 'Required' : null,
               ),

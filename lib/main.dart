@@ -688,12 +688,24 @@ class _ProjectCardState extends State<ProjectCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              project.imagePath,
-              height: isMobile ? 160 : 120,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+            Builder(builder: (context) {
+              final isUrl = project.imagePath.startsWith('http');
+              return isUrl
+                  ? Image.network(
+                      project.imagePath,
+                      height: isMobile ? 160 : 120,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stack) =>
+                          const Icon(Icons.broken_image),
+                    )
+                  : Image.asset(
+                      project.imagePath,
+                      height: isMobile ? 160 : 120,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    );
+            }),
             const SizedBox(height: 10),
             Text(
               project.title,
