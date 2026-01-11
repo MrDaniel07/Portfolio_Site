@@ -657,8 +657,9 @@ class _ExperienceFormDialogState extends State<ExperienceFormDialog> {
               TextFormField(
                 controller: _imagePathController,
                 decoration: const InputDecoration(
-                  labelText: 'Image Path',
-                  hintText: 'assets/images/company.png',
+                  labelText: 'Image Path or URL',
+                  hintText:
+                      'assets/images/company.png or https://example.com/logo.png',
                 ),
                 validator: (v) => v?.isEmpty == true ? 'Required' : null,
               ),

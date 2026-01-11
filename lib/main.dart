@@ -897,6 +897,9 @@ class _ExperienceSectionState extends State<ExperienceSection> {
       required String description,
       required String imagePath,
       required bool isMobile}) {
+    final ImageProvider imageProvider = imagePath.startsWith('http')
+        ? NetworkImage(imagePath)
+        : AssetImage(imagePath);
     return isMobile
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -915,7 +918,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
-                      image: AssetImage(imagePath),
+                      image: imageProvider,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -946,7 +949,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    image: AssetImage(imagePath),
+                    image: imageProvider,
                     fit: BoxFit.cover,
                   ),
                 ),
