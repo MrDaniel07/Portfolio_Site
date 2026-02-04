@@ -408,7 +408,7 @@ class HeroSection extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     final url = Uri.parse(
-                        'https://github.com/MrDaniel07/RESUM-/raw/main/Daniel_Resume.pdf');
+                        'https://raw.githubusercontent.com/MrDaniel07/RESUM-/main/AnyahuruDaniel-Resume*.docx');
                     launchUrl(url);
                   },
                   style: ElevatedButton.styleFrom(
@@ -447,7 +447,7 @@ class HeroSection extends StatelessWidget {
                       ElevatedButton(
                         onPressed: () {
                           final url = Uri.parse(
-                              'https://github.com/MrDaniel07/RESUM-/raw/main/Daniel_Resume.pdf');
+                              'https://raw.githubusercontent.com/MrDaniel07/RESUM-/main/AnyahuruDaniel-Resume*.docx');
                           launchUrl(url);
                         },
                         style: ElevatedButton.styleFrom(
