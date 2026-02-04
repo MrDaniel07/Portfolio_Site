@@ -744,8 +744,8 @@ class SkillsSection extends StatelessWidget {
     {'name': 'Project Management', 'level': 0.65},
     {'name': 'Problem solving', 'level': 0.9},
     {'name': 'Communication', 'level': 0.9},
-    {'name': 'Data analysis', 'level': 0.85},
-    {'name': 'Software development', 'level': 0.75},
+    {'name': 'Data analysis', 'level': 0.75},
+    {'name': 'Software development', 'level': 0.9},
     {'name': 'Designs', 'level': 0.85},
   ];
 
