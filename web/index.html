@@ -62,7 +62,7 @@
       "Flutter",
       "Dart",
       "AWS",
-      "Cloud Security",
+      "Cloud Engineering",
       "Cybersecurity",
       "Full Stack Development",
       "SQL Database Design",
@@ -85,9 +85,87 @@
 
   <title>Anyahuru Daniel Oluebube - Software Engineer & Cloud Security Expert</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #181818 0%, #2a2a2a 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(224, 204, 159, 0.2);
+      border-top-color: #E0CC9F;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      color: #E0CC9F;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .loading-dots {
+      display: inline-block;
+      width: 4px;
+    }
+
+    @keyframes blink {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        opacity: 1;
+      }
+
+      40% {
+        opacity: 0.5;
+      }
+
+      60% {
+        opacity: 0.7;
+      }
+    }
+
+    .loading-dots {
+      animation: blink 1.4s infinite;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading<span class="loading-dots">...</span></div>
+  </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 
